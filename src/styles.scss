@@ -2,12 +2,12 @@
 @import "./styles/_init-css.scss";
 
 @import "./styles/_colors.scss";
-
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:wght@400;500;600;700&display=swap");
-
 @import "~primeflex/primeflex.css";
+@import "~primeicons/primeicons.css";
+@import "~primeng/resources/themes/arya-orange/theme.css";
+@import "~primeng/resources/primeng.min.css";
 
 body {
   font-family: "Roboto", sans-serif;

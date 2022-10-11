@@ -1,0 +1,78 @@
+<ng-container *ngIf="tv">
+  <app-slider [itemsI]="[tv]" [isBanner]="true"></app-slider>
+
+  <p-tabView>
+    <p-tabPanel header="Overview">
+      <div class="grid">
+        <div class="col-12 md:col-3 lg:col-3">
+          <img
+            class="poster"
+            [src]="imagesSizes.medium + tv.poster_path"
+            [alt]="tv.name"
+          />
+        </div>
+
+        <div class="col-12 md:col-9 lg:col-9">
+          <h2>Overview</h2>
+          <p class="overview">
+            {{ tv.overview }}
+          </p>
+          <div class="stat">
+            <div class="label">Seasons:</div>
+            <div class="value">
+              <span class="season" *ngFor="let season of tv.seasons">{{
+                season.name
+              }}</span>
+            </div>
+          </div>
+
+          <div class="stat">
+            <div class="label">Air Date:</div>
+            <div class="value">
+              <span class="season" *ngFor="let season of tv.seasons">{{
+                season.air_date | date: "MM.yyyy"
+              }}</span>
+            </div>
+          </div>
+
+          <div class="stat">
+            <div class="label">Language:</div>
+            <div class="value">
+              {{ tv.original_language | uppercase }}
+            </div>
+          </div>
+
+          <div class="stat">
+            <div class="label">Duration:</div>
+            <div class="value">{{ tv.runtime }} min</div>
+          </div>
+
+          <div class="stat">
+            <div class="label">Status:</div>
+            <div class="value">
+              {{ tv.status }}
+            </div>
+          </div>
+
+          <div class="stat">
+            <div class="label">Created By:</div>
+            <div class="value">
+              <span
+                class="actors-name"
+                *ngFor="let created_by$ of tv.created_by"
+                >{{ created_by$.name }}</span
+              >
+            </div>
+          </div>
+
+          <div class="stat">
+            <div class="label">Genres:</div>
+            <div class="value">
+              <span *ngFor="let genre of tv.genres">{{ genre.name }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+</ng-container>

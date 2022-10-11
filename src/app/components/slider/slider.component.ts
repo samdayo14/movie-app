@@ -5,8 +5,10 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { InvokeFunctionExpr } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { IMAGES_SIZES } from 'src/app/constants/images-sizes';
+import { Tv } from 'src/app/Models/tvshow';
 import { Movie } from '../../Models/movie';
 
 @Component({
@@ -22,15 +24,19 @@ import { Movie } from '../../Models/movie';
 })
 export class SliderComponent implements OnInit {
   @Input() items: Movie[] = [];
+  @Input() itemsI: Tv[] = [];
+  @Input() isBanner: boolean = false;
 
   currentSlideIndex: number = 0;
 
   readonly imagesSizes = IMAGES_SIZES;
 
   ngOnInit(): void {
-    setInterval(() => {
-      this.currentSlideIndex = ++this.currentSlideIndex % this.items.length;
-    }, 5000);
+    if (!this.isBanner) {
+      setInterval(() => {
+        this.currentSlideIndex = ++this.currentSlideIndex % this.items.length;
+      }, 5000);
+    }
   }
 }
 function s(

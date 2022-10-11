@@ -1,6 +1,6 @@
 <!-- <pre>{{ items | json }}</pre> -->
-
-<div class="slider">
+<!-- MOVIES PAGE -->
+<div *ngIf="items" class="slider">
   <ng-container *ngFor="let item of items; let i = index">
     <div class="slide" *ngIf="i == currentSlideIndex" @slideFade>
       <div class="slide-bg">
@@ -27,6 +27,41 @@
 
         <div class="desc mt-6">
           {{ item.overview }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<!-- TV SHOWS -->
+
+<div *ngIf="itemsI" class="slider tv-show">
+  <ng-container *ngFor="let itemsI of itemsI; let i = index">
+    <div class="slide" *ngIf="i == currentSlideIndex" @slideFade>
+      <div class="slide-bg">
+        <img
+          class="slide-bg-img"
+          [src]="'https://image.tmdb.org/t/p/original/' + itemsI.backdrop_path"
+          alt=""
+        />
+      </div>
+
+      <div class="slide-pane">
+        <h2 class="name">{{ itemsI.name }} - {{ i }}</h2>
+        <div class="meta">
+          <div class="info">
+            <span class="rating">
+              <span class="app-icons">star</span
+              ><span class="rating-value">{{ itemsI.vote_average }}</span
+              ><span>/10</span>
+            </span>
+            <span>{{ itemsI.vote_count }}</span>
+            <span>{{ itemsI.release_date | date: "yyyy" }}</span>
+          </div>
+        </div>
+
+        <div class="desc mt-6">
+          {{ itemsI.overview }}
         </div>
       </div>
     </div>

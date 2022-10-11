@@ -2,10 +2,11 @@
 
 .movie-item {
   display: block;
-  min-height: 325px;
+  min-height: 300px;
   border-radius: 5px;
   background-color: $bgColorLight;
   border: 1px solid $lightGray;
+  position: relative;
 
   &-image {
     img {
@@ -17,7 +18,7 @@
   }
 
   &-rating {
-    // position: relative;
+    position: absolute;
     display: flex;
     align-items: center;
     top: 10px;

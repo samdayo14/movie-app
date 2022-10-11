@@ -1,5 +1,6 @@
+<!-- Movies page -->
 <ng-container *ngIf="itemData">
-  <a class="movie-item">
+  <a class="movie-item" [routerLink]="'/movie/' + itemData.id">
     <div class="movie-item-rating">
       <i class="app-icons">star</i>
       <span>{{ itemData.vote_average }}</span
@@ -12,5 +13,23 @@
       />
     </div>
     <div class="movie-item-title">{{ itemData.title }}</div>
+  </a>
+</ng-container>
+
+<!-- Tv show -->
+<ng-container *ngIf="itemInfo">
+  <a class="movie-item" [routerLink]="'/tv/' + itemInfo.id">
+    <div class="movie-item-rating">
+      <i class="app-icons">star</i>
+      <span>{{ itemInfo.vote_average }}</span
+      >/10
+    </div>
+    <div class="movie-item-image">
+      <img
+        [src]="imagesSizes.medium + itemInfo.poster_path"
+        [alt]="[itemInfo.name]"
+      />
+    </div>
+    <div class="movie-item-title">{{ itemInfo.name }}</div>
   </a>
 </ng-container>
