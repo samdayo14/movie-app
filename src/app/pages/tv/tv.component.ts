@@ -28,7 +28,6 @@ export class TvComponent implements OnInit {
   getTv(id: string) {
     this.moviesService.getTv(id).subscribe((tvData) => {
       this.tv = tvData;
-      console.log(tvData);
     });
   }
   // getTv(id: string) {

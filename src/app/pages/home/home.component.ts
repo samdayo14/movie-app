@@ -3,6 +3,7 @@ import { Movie } from 'src/app/Models/movie';
 import { MoviesService } from '../../services/movies.service';
 
 import { MovieDto } from 'src/app/Models/movie';
+import { Tv } from 'src/app/Models/tvshow';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,7 @@ export class HomeComponent implements OnInit {
   popularMovies: Movie[] = [];
   topRatedMovies: Movie[] = [];
   upcomingMovies: Movie[] = [];
+  topTv: Tv[] = [];
 
   constructor(private moviesService: MoviesService) {}
 
@@ -25,6 +27,9 @@ export class HomeComponent implements OnInit {
     });
     this.moviesService.getMovies('upcoming').subscribe((movies) => {
       this.upcomingMovies = movies;
+    });
+    this.moviesService.getTv$('top_rated').subscribe((tv) => {
+      this.topTv = tv;
     });
   }
 }

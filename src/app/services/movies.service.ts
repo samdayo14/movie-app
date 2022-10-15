@@ -41,6 +41,16 @@ export class MoviesService {
       );
   }
 
+  getTv$(type: string = 'top_tv', count: number = 12) {
+    return this.http
+      .get<TvDto>(`${this.baseUrl}/tv/${type}?api_key=${this.apiKey}`)
+      .pipe(
+        switchMap((res) => {
+          return of(res.results.slice(0, count));
+        })
+      );
+  }
+
   getMovie(id: string) {
     return this.http.get<Movie>(
       `${this.baseUrl}/movie/${id}?api_key=${this.apiKey}`
